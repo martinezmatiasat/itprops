@@ -1,4 +1,5 @@
 <?php
+define('CONTR', 'propiedades/');
 
 class propiedadesController
 {
@@ -6,7 +7,7 @@ class propiedadesController
    {
       //if (!isset($_SESSION['user'])) go_to('login');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render('propiedades');
+      View::render(CONTR.'propiedades');
       return;
    }
 
@@ -14,7 +15,7 @@ class propiedadesController
    {
       //if (!isset($_SESSION['user'])) go_to('login');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render('importarPropiedad');
+      View::render(CONTR.'importarPropiedad');
       return;
    }
 
@@ -22,7 +23,15 @@ class propiedadesController
    {
       //if (!isset($_SESSION['user'])) go_to('login');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render('exportarPropiedad');
+      View::render(CONTR.'exportarPropiedad');
+      return;
+   }
+
+   public function nueva()
+   {
+      //if (!isset($_SESSION['user'])) go_to('login');
+      //$data = ['title' => 'Home', 'bg' => 'dark'];
+      View::render(CONTR.'nuevaPropiedad');
       return;
    }
 }
