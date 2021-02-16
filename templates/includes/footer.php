@@ -31,6 +31,7 @@ if (isset($vendorJs)) {
 ?>
 <!-- END VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
+<script src=<?php echo APPASSETS . "vendors/js/toastr.min.js"; ?>></script>
 <?php
 if (isset($pageVendorJs)) {
    foreach ($pageVendorJs as $file) {
@@ -55,6 +56,7 @@ if (isset($apexJs)) {
 ?>
 <!-- END APEX JS-->
 <!-- BEGIN PAGE LEVEL JS-->
+<script src=<?php echo APPASSETS . "js/ex-component-toastr.js"; ?>></script>
 <?php
 if (isset($pageLevelJs)) {
    foreach ($pageLevelJs as $file) {
@@ -74,9 +76,7 @@ if (isset($customJs)) {
 ?>
 <!-- END: Custom JS-->
 
-<?php
-// echo Alert::catch_msg();
-?>
+<?= Alert::catch_msg(); ?>
 </body>
 
 </html>

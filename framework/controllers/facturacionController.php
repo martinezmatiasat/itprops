@@ -4,10 +4,7 @@ class facturacionController
 {
    public function index()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
-      //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render('facturacion');
-      return;
+      go_to('facturacion/facturas');
    }
 
    public function facturas()

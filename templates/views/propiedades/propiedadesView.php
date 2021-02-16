@@ -123,6 +123,7 @@ require_once INCLUDES . 'header.php';
                               </table>
                            </div>
                            <!-- Datatable ends -->
+                           <button type="button" class="btn btn-outline-primary btn-toastr mb-1 mr-1" id="position-bottom-right">Bottom Right</button>
                         </div>
                      </div>
                   </div>

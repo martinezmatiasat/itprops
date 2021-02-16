@@ -10,7 +10,6 @@ class Framework
       $this->load_config();
       $this->load_functions();
       $this->init_autoload();
-      $this->init_csrf();
       $this->dispatch();
    }
 
@@ -65,11 +64,6 @@ class Framework
       return;
    }
 
-   private function init_csrf()
-   {
-      $csrf = new Csrf();
-   }
-
    private function filter_url()
    {
       if (isset($_GET['uri'])) {
@@ -117,7 +111,18 @@ class Framework
       // Creando constantes para utilizar más adelante
       define('CONTROLLER', $current_controller);
       define('METHOD', $current_method);
-
+      
+      // Si se intenta ingresar a una pagina sin haber iniciado sesión, enviar al login
+      /*
+      if ($controller != DEFAULT_CONTROLLER . 'Controller') {
+         if (empty($_COOKIE['admin']) || empty($_COOKIE['empresa'])) {
+            
+            $controller = DEFAULT_CONTROLLER . 'Controller';
+            $current_method = 'logout';
+         }
+      }
+      */
+      
       // Ejecutando controlador y método según se haga la petición
       $controller = new $controller; // Se instancia la clase del nombre del controlador
       $params = array_values(empty($this->uri) ? [] : $this->uri); // Se obtienen los parametros de la URI

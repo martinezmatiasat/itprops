@@ -23,6 +23,7 @@
    <link rel="stylesheet" type="text/css" href=<?php echo APPASSETS . "vendors/css/perfect-scrollbar.min.css"; ?>>
    <link rel="stylesheet" type="text/css" href=<?php echo APPASSETS . "vendors/css/prism.min.css"; ?>>
    <link rel="stylesheet" type="text/css" href=<?php echo APPASSETS . "vendors/css/switchery.min.css"; ?>>
+   <link rel="stylesheet" type="text/css" href=<?php echo APPASSETS . "vendors/css/toastr.css"; ?>>
    <?php
    if (isset($vendorCss)) {
       foreach ($vendorCss as $file) {
@@ -48,6 +49,7 @@
    <!-- END APEX CSS-->
    <!-- BEGIN Page Level CSS-->
    <link rel="stylesheet" type="text/css" href=<?php echo APPASSETS . "css/core/menu/horizontal-menu.css"; ?>>
+   <link rel="stylesheet" type="text/css" href=<?php echo APPASSETS . "css/pages/ex-component-toastr.css"; ?>>
    <?php
    if (isset($pageLevelCss)) {
       foreach ($pageLevelCss as $file) {
@@ -160,7 +162,7 @@
                         </a>
                         <div class="dropdown-divider">
                         </div>
-                        <a class="dropdown-item" href="javascript:void(0)">
+                        <a class="dropdown-item" href=<?= URL."login/logout" ?>>
                            <div class="d-flex align-items-center">
                               <i class="ft-power mr-2"></i>
                               <span>Cerrar Sesi&oacute;n</span>

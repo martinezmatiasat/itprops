@@ -5,7 +5,7 @@ class propiedadesController
 {
    public function index()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'propiedades');
       return;
@@ -13,7 +13,7 @@ class propiedadesController
 
    public function importar()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'importarPropiedad');
       return;
@@ -21,7 +21,7 @@ class propiedadesController
 
    public function exportar()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'exportarPropiedad');
       return;
@@ -29,7 +29,7 @@ class propiedadesController
 
    public function nueva()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'nuevaPropiedad');
       return;
