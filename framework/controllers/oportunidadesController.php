@@ -5,7 +5,7 @@ class oportunidadesController
 {
    public function index()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'oportunidades');
       return;
@@ -13,7 +13,7 @@ class oportunidadesController
 
    public function editar()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'editarOportunidad');
       return;
@@ -21,7 +21,7 @@ class oportunidadesController
 
    public function editarFlujo()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'editarFlujo');
       return;
@@ -29,16 +29,15 @@ class oportunidadesController
 
    public function flujos($action = '')
    {  
-      if ($action && $action == 'editar') go_to('oportunidades/editarFlujo'); 
-      //if (!isset($_SESSION['user'])) go_to('login');
-      //$data = ['title' => 'Home', 'bg' => 'dark'];
+      if ($action && $action == 'editar') go_to('oportunidades/editarFlujo');
+      validate_loged_user();
       View::render(CONTR.'flujos');
       return;
    }
 
    public function tarea()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'tareaOportunidad');
       return;
@@ -46,7 +45,7 @@ class oportunidadesController
 
    public function historial()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'historialOportunidad');
       return;

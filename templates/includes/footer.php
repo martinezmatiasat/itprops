@@ -13,8 +13,7 @@
 </div> <!-- END Main Content-->
 </div> <!-- END Wrapper-->
 
-<?php //require_once INCLUDES . 'calendario-sidebar.php'; ?>
-<?php //require_once INCLUDES . 'consultas-sidebar.php'; ?>
+<?php require_once INCLUDES . 'sidebar.php'; ?>
 
 <div class="sidenav-overlay"></div>
 <div class="drag-target"></div>
@@ -43,8 +42,7 @@ if (isset($pageVendorJs)) {
 <!-- BEGIN APEX JS-->
 <script src=<?php echo APPASSETS . "js/core/app-menu.js"; ?>></script>
 <script src=<?php echo APPASSETS . "js/core/app.js"; ?>></script>
-<script src=<?php echo APPASSETS . "js/calendario-sidebar.js"; ?>></script>
-<script src=<?php echo APPASSETS . "js/consultas-sidebar.js"; ?>></script>
+<script src=<?php echo APPASSETS . "js/notification-sidebar.js"; ?>></script>
 <script src=<?php echo APPASSETS . "js/customizer.js"; ?>></script>
 <script src=<?php echo APPASSETS . "js/scroll-top.js"; ?>></script>
 <?php

@@ -11,7 +11,7 @@ class catalogoController
 
    public function zona()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'zonas');
       return;
@@ -19,7 +19,7 @@ class catalogoController
 
    public function partido()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'partidos');
       return;
@@ -27,7 +27,7 @@ class catalogoController
 
    public function barrio()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'barrios');
       return;
@@ -35,7 +35,7 @@ class catalogoController
 
    public function tipos_propiedades()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'tiposPropiedades');
       return;
@@ -43,7 +43,7 @@ class catalogoController
 
    public function estado_propiedad()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'estadosPropiedades');
       return;
@@ -51,7 +51,7 @@ class catalogoController
 
    public function tipo_operacion()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'tiposOperaciones');
       return;
@@ -59,7 +59,7 @@ class catalogoController
 
    public function caracteristicas()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'caracteristicas');
       return;
@@ -67,7 +67,7 @@ class catalogoController
 
    public function bloques()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'zona');
       return;
@@ -75,7 +75,7 @@ class catalogoController
 
    public function tipos_documentos()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'tiposDocumentos');
       return;
@@ -83,7 +83,7 @@ class catalogoController
 
    public function procedencias()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'procedencias');
       return;
@@ -91,7 +91,7 @@ class catalogoController
 
    public function tipos_tareas()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'tiposTareas');
       return;

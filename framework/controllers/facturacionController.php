@@ -9,7 +9,7 @@ class facturacionController
 
    public function facturas()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('facturas');
       return;
@@ -17,9 +17,13 @@ class facturacionController
 
    public function datos()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('facturacionDatos');
       return;
+   }
+
+   public function algo() {
+
    }
 }

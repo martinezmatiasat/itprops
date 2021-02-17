@@ -1,12 +1,13 @@
 <?php
+define('CONTR', 'dashboard/');
 
 class dashboardController
 {
    public function index()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render('dashboard');
+      View::render(CONTR.'dashboard');
       return;
    }
 }

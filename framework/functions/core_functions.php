@@ -92,3 +92,14 @@ function validate_loged_user(){
    }
    return true;
 }
+
+function format_date($date) {
+   return $date;
+}
+
+function format_price($currency, $price) {
+   $res = false;
+   if ($currency == 1) { $res = '$ '; } elseif ($currency == 2) { $res = 'U$S '; }
+   if ($res) $res .= number_format($price, 2, ',', '.');
+   return $res;
+}

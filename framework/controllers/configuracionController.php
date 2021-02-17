@@ -4,7 +4,7 @@ class configuracionController
 {
    public function index()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('configuracion/general');
       return;
@@ -12,7 +12,7 @@ class configuracionController
 
    public function sucursales()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('configuracion/sucursales');
       return;
@@ -20,7 +20,7 @@ class configuracionController
 
    public function sincronizacion()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('configuracion/sincronizacion');
       return;
@@ -28,7 +28,7 @@ class configuracionController
 
    public function api()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('configuracion/api');
       return;
@@ -36,7 +36,7 @@ class configuracionController
 
    public function datos()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('configuracion/datos');
       return;
@@ -44,7 +44,7 @@ class configuracionController
 
    public function general()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('configuracion/general');
       return;
@@ -52,7 +52,7 @@ class configuracionController
 
    public function app()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('configuracion/app');
       return;
@@ -60,7 +60,7 @@ class configuracionController
 
    public function ficha()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('configuracion/ficha');
       return;
@@ -68,7 +68,7 @@ class configuracionController
 
    public function cartelera()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('configuracion/cartelera');
       return;

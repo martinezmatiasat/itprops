@@ -27,7 +27,7 @@
    <?php
    if (isset($vendorCss)) {
       foreach ($vendorCss as $file) {
-         echo '<link rel='.'"'.'stylesheet'.'"'.' type='.'"'.'text/css'.'"'.' href='.'"'.APPASSETS.'vendors/css/'.$file.'";>';
+         echo '<link rel=' . '"' . 'stylesheet' . '"' . ' type=' . '"' . 'text/css' . '"' . ' href=' . '"' . APPASSETS . 'vendors/css/' . $file . '";>';
       }
    }
    ?>
@@ -42,7 +42,7 @@
    <?php
    if (isset($apexCss)) {
       foreach ($apexCss as $file) {
-         echo '<link rel='.'"'.'stylesheet'.'"'.' type='.'"'.'text/css'.'"'.' href='.'"'.APPASSETS.'css/'.$file.'";>';
+         echo '<link rel=' . '"' . 'stylesheet' . '"' . ' type=' . '"' . 'text/css' . '"' . ' href=' . '"' . APPASSETS . 'css/' . $file . '";>';
       }
    }
    ?>
@@ -53,7 +53,7 @@
    <?php
    if (isset($pageLevelCss)) {
       foreach ($pageLevelCss as $file) {
-         echo '<link rel='.'"'.'stylesheet'.'"'.' type='.'"'.'text/css'.'"'.' href='.'"'.APPASSETS.$file.'";>';
+         echo '<link rel=' . '"' . 'stylesheet' . '"' . ' type=' . '"' . 'text/css' . '"' . ' href=' . '"' . APPASSETS . $file . '";>';
       }
    }
    ?>
@@ -63,7 +63,7 @@
    <?php
    if (isset($customCss)) {
       foreach ($customCss as $file) {
-         echo '<link rel='.'"'.'stylesheet'.'"'.' type='.'"'.'text/css'.'"'.' href='.'"'.ASSETS.'css/'.$file.'";>';
+         echo '<link rel=' . '"' . 'stylesheet' . '"' . ' type=' . '"' . 'text/css' . '"' . ' href=' . '"' . ASSETS . 'css/' . $file . '";>';
       }
    }
    ?>
@@ -133,6 +133,40 @@
                         <span class="notification badge badge-pill badge-danger">4</span>
                      </a>
                   </li>
+                  <li class="dropdown nav-item">
+                     <a class="nav-link dropdown-toggle user-dropdown d-flex align-items-end mt-1" id="config-button" href="javascript:;" data-toggle="dropdown">
+                        <div class="user d-md-flex d-none mr-2">
+                           <span class="text-right"><i class="icon-settings font-medium-3"></i></span>
+                        </div>
+                     </a>
+                     <div class="dropdown-menu text-left dropdown-menu-right m-0 pb-0" aria-labelledby="dropdownBasic2">
+                        <a class="dropdown-item" href=<?= URL . "administradores" ?>>
+                           <div class="d-flex align-items-center">
+                              <i class="ft-briefcase mr-2"></i>
+                              <span>Administradores</span>
+                           </div>
+                        </a>
+                        <a class="dropdown-item" href=<?php echo URL . "tickets"; ?>>
+                           <div class="d-flex align-items-center">
+                              <i class="ft-file mr-2"></i>
+                              <span>Tickets</span>
+                           </div>
+                        </a>
+                        <a class="dropdown-item" href=<?php echo URL . "catalogo/zona"; ?>>
+                           <div class="d-flex align-items-center">
+                              <i class="ft-layers mr-2"></i>
+                              <span>Cat&aacute;logo</span>
+                           </div>
+                        </a>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                           <div class="d-flex align-items-center">
+                              <i class="ft-settings mr-2"></i>
+                              <span>Configuraci&oacute;n</span>
+                           </div>
+                        </a>
+
+                     </div>
+                  </li>
                   <li class="dropdown nav-item mr-1">
                      <a class="nav-link dropdown-toggle user-dropdown d-flex align-items-end" id="dropdownBasic2" href="javascript:;" data-toggle="dropdown">
                         <div class="user d-md-flex d-none mr-2">
@@ -148,27 +182,18 @@
                               <span>Mi Perfil</span>
                            </div>
                         </a>
-                        <a class="dropdown-item" href="javascript:void(0)">
-                           <div class="d-flex align-items-center">
-                              <i class="ft-layers mr-2"></i>
-                              <span>Cat&aacute;logo</span>
-                           </div>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)">
-                           <div class="d-flex align-items-center">
-                              <i class="ft-settings mr-2"></i>
-                              <span>Configuraci&oacute;n</span>
-                           </div>
-                        </a>
-                        <div class="dropdown-divider">
-                        </div>
-                        <a class="dropdown-item" href=<?= URL."login/logout" ?>>
+                        <a class="dropdown-item" href=<?= URL . "login/logout" ?>>
                            <div class="d-flex align-items-center">
                               <i class="ft-power mr-2"></i>
-                              <span>Cerrar Sesi&oacute;n</span>
+                              <span>Salir</span>
                            </div>
                         </a>
                      </div>
+                  </li>
+                  <li class="nav-item d-none d-lg-block mr-2 mt-1">
+                     <a class="nav-link notification-sidebar-toggle" href="javascript:;">
+                        <i class="ft-align-right font-medium-3"></i>
+                     </a>
                   </li>
                </ul>
             </div>
@@ -181,11 +206,18 @@
       <div class="header-navbar navbar-expand-sm navbar navbar-horizontal navbar-fixed navbar-light navbar-shadow menu-border navbar-brand-center" role="navigation" data-menu="menu-wrapper">
          <div class="navbar-container main-menu-content center-layout" data-menu="menu-container">
             <ul class="navigation-main nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
-               <li class="dropdown nav-item" data-menu="dropdown">
-                  <a class="dropdown-toggle nav-link d-flex align-items-center" href="javascript:;" data-toggle="dropdown">
+               <li class="dropdown nav-item">
+                  <a class="nav-link" href=<?php echo URL . "dashboard"; ?>>
+                     <i class="ft-bar-chart"></i>
+                     <span data-i18n="Menu Levels">Dashboard</span>
+                  </a>
+               </li>
+               <li class="dropdown nav-item">
+                  <a class="nav-link" href=<?php echo URL . "propiedades"; ?>>
                      <i class="ft-home"></i>
                      <span data-i18n="Menu Levels">Propiedades</span>
                   </a>
+                  <!--
                   <ul class="dropdown-menu">
                      <li data-menu="">
                         <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "propiedades"; ?> data-toggle="dropdown">
@@ -206,12 +238,14 @@
                         </a>
                      </li>
                   </ul>
+                  -->
                </li>
                <li class="dropdown nav-item" data-menu="dropdown">
                   <a class="dropdown-toggle nav-link d-flex align-items-center" href="javascript:;" data-toggle="dropdown">
                      <i class="ft-gift"></i>
                      <span data-i18n="Menu Levels">Oportunidades</span>
                   </a>
+                  <!--
                   <ul class="dropdown-menu">
                      <li data-menu="">
                         <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "oportunidades"; ?> data-toggle="dropdown">
@@ -226,6 +260,7 @@
                         </a>
                      </li>
                   </ul>
+                  -->
                </li>
                <li class="dropdown nav-item">
                   <a class="nav-link" href=<?php echo URL . "clientes"; ?>>
@@ -234,24 +269,12 @@
                   </a>
                </li>
                <li class="dropdown nav-item">
-                  <a class="nav-link" href=<?php echo URL . "administradores"; ?>>
-                     <i class="ft-briefcase"></i>
-                     <span data-i18n="Dashboard">Administradores</span>
-                  </a>
-               </li>
-               <li class="dropdown nav-item">
                   <a class="nav-link" href=<?php echo URL . "reportes"; ?>>
                      <i class="ft-bar-chart-2"></i>
                      <span data-i18n="Page1">Reportes</span>
                   </a>
                </li>
-               <li class="dropdown nav-item">
-                  <a class="nav-link" href=<?php echo URL . "tickets"; ?>>
-                     <i class="ft-file"></i>
-                     <span data-i18n="Page1">Tickets</span>
-                  </a>
-               </li>
-               <li class="dropdown nav-item" data-menu="dropdown">
+               <!--<li class="dropdown nav-item" data-menu="dropdown">
                   <a class="dropdown-toggle nav-link d-flex align-items-center" href="javascript:;" data-toggle="dropdown">
                      <i class="ft-file-text"></i>
                      <span data-i18n="Menu Levels">Facturaci&oacute;n</span>
@@ -270,8 +293,8 @@
                         </a>
                      </li>
                   </ul>
-               </li>
-               <li class="dropdown nav-item" data-menu="dropdown">
+               </li>-->
+               <!-- <li class="dropdown nav-item" data-menu="dropdown">
                   <a class="dropdown-toggle nav-link d-flex align-items-center" href="javascript:;" data-toggle="dropdown">
                      <i class="ft-layers"></i>
                      <span data-i18n="Menu Levels">Cat&aacute;logo</span>
@@ -344,8 +367,8 @@
                         </a>
                      </li>
                   </ul>
-               </li>
-               <li class="dropdown nav-item" data-menu="dropdown">
+               </li> -->
+               <!--<li class="dropdown nav-item" data-menu="dropdown">
                   <a class="dropdown-toggle nav-link d-flex align-items-center" href="javascript:;" data-toggle="dropdown">
                      <i class="ft-settings"></i>
                      <span data-i18n="Menu Levels">Configuraci&oacute;n</span>
@@ -400,7 +423,7 @@
                         </a>
                      </li>
                   </ul>
-               </li>
+               </li>-->
             </ul>
          </div>
       </div>

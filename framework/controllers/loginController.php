@@ -49,7 +49,11 @@ class loginController
    function logout()
    {
       if (isset($_COOKIE['session_id'])) {
-         Factory::update_array("administrador_acceso", ["fecha_salida" => date("Y/m/d H:i:s", time())], ["`session_id` = "."'".$_COOKIE['session_id']."'"]);
+         Factory::update_array(
+            "administrador_acceso", 
+            ["fecha_salida" => date("Y/m/d H:i:s", time())], 
+            ["`session_id` = "."'".$_COOKIE['session_id']."'"]
+         );
       }
       session_unset();
       session_destroy();

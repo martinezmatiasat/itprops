@@ -1,13 +1,9 @@
 <?php
-class errorController extends Controller
+class errorController
 {
-    function __construct()
-    {
-    }
-
-    function index()
-    {
-        $data = ['tittle' => 'Página no encontrada', 'bg' => 'dark'];
-        View::render('404', $data);
-    }
+   function index()
+   {
+      $data = ['tittle' => 'Página no encontrada', 'bg' => 'dark'];
+      View::render('404', $data);
+   }
 }

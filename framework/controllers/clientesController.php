@@ -5,7 +5,7 @@ class clientesController
 {
    public function index()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'clientes');
       return;
@@ -13,7 +13,7 @@ class clientesController
 
    public function ver()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'verCliente');
       return;
@@ -21,7 +21,7 @@ class clientesController
 
    public function editar()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render(CONTR.'editarCliente');
       return;

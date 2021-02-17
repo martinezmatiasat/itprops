@@ -4,7 +4,7 @@ class administradoresController
 {
    public function index()
    {
-      //if (!isset($_SESSION['user'])) go_to('login');
+      validate_loged_user();
       //$data = ['title' => 'Home', 'bg' => 'dark'];
       View::render('administradores');
       return;

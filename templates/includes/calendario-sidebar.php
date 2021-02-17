@@ -14,7 +14,6 @@
                      <h5 class="my-2 text-bold-500">Calendario</h5>
                      <div class="timeline-left timeline-wrapper mb-3" id="timeline-1">
                         <ul class="timeline">
-                           
                            <li class="timeline-item">
                               <div class="timeline-badge"><h5>13 <br> 00</h5> </div>
                               <div class="activity-list-text">
