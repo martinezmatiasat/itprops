@@ -64,23 +64,22 @@
                                        <img src=<?= APPASSETS . "img/gallery/login.png"; ?> alt="" class="img-fluid" width="300" height="230">
                                     </div>
                                     <div class="col-lg-6 col-12 px-4 py-3">
-                                       <h4 class="mb-2 card-title">Login</h4>
-                                       <p>Welcome back, please login to your account.</p>
+                                       <h4 class="mb-2 mt-2 card-title">Iniciar Sesi&oacute;n</h4>
+                                       <p>Bienvenido, ingrese sus datos para continuar.</p>
                                        <form action=<?= URL . "login/login"; ?> method="post">
-                                          <input type="text" name="email" class="form-control mb-3" placeholder="E-mail">
-                                          <input type="password" name="pass" class="form-control mb-2" placeholder="Password">
+                                          <input type="text" name="email" class="form-control mb-2" placeholder="Email">
+                                          <input type="password" name="pass" class="form-control mb-2" placeholder="Clave">
                                           <div class="d-sm-flex justify-content-between mb-3 font-small-2">
                                              <div class="remember-me mb-2 mb-sm-0">
                                                 <div class="checkbox auth-checkbox">
                                                    <input type="checkbox" id="auth-ligin">
-                                                   <label for="auth-ligin"><span>Remember Me</span></label>
+                                                   <label for="auth-ligin"><span>Recordarme</span></label>
                                                 </div>
                                              </div>
-                                             <a href="auth-forgot-password.html">Forgot Password?</a>
+                                             <a href=<?= URL."login/forgot_pass" ?>>Olvid&eacute; mi clave</a>
                                           </div>
                                           <div class="d-flex justify-content-between flex-sm-row flex-column">
-                                             <a href="auth-register.html" class="btn bg-light-primary mb-2 mb-sm-0">Register</a>
-                                             <input type="submit" class="btn btn-primary" value="Login">
+                                             <input type="submit" class="btn btn-primary" value="Ingresar">
                                           </div>
                                           <div class="mt-3 d-flex justify-content-between align-items-center">
                                              <?= Alert::catch_login_msg(); ?>

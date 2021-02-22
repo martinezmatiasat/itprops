@@ -12,10 +12,10 @@ require_once INCLUDES . 'header.php';
          <div class="users-list-filter px-2">
             <form>
                <div class="row border rounded py-2 mb-2 mx-n2">
-                  <div class="col-12 col-sm-6 col-lg-3">
-                     <label for="list-verified">Verified</label>
+                  <div class="col-6 col-sm-3 col-lg-2">
+                     <label for="list-verified">Nombre</label>
                      <fieldset class="form-group">
-                        <select id="list-verified" class="form-control list-verified">
+                        <select class="form-control list-verified">
                            <option value="Any">Any</option>
                            <option value="Yes">Yes</option>
                            <option value="No">No</option>
@@ -23,10 +23,10 @@ require_once INCLUDES . 'header.php';
                      </fieldset>
                   </div>
 
-                  <div class="col-12 col-sm-6 col-lg-3">
-                     <label for="users-list-role">Role</label>
+                  <div class="col-6 col-sm-3 col-lg-2">
+                     <label for="users-list-role">C&oacute;digo (Interno)</label>
                      <fieldset class="form-group">
-                        <select id="users-list-role" class="form-control">
+                        <select class="form-control">
                            <option value="Any">Any</option>
                            <option value="User">User</option>
                            <option value="Staff">Staff</option>
@@ -34,10 +34,10 @@ require_once INCLUDES . 'header.php';
                      </fieldset>
                   </div>
 
-                  <div class="col-12 col-sm-6 col-lg-3">
-                     <label for="users-list-status">Status</label>
+                  <div class="col-6 col-sm-3 col-lg-2">
+                     <label for="users-list-status">Estado</label>
                      <fieldset class="form-group">
-                        <select id="users-list-status" class="form-control">
+                        <select class="form-control">
                            <option value="Any">Any</option>
                            <option value="Active">Active</option>
                            <option value="Close">Close</option>
@@ -46,9 +46,43 @@ require_once INCLUDES . 'header.php';
                      </fieldset>
                   </div>
 
-                  <div class="col-12 col-sm-6 col-lg-3 d-flex align-items-center">
-                     <button type="reset" class="btn btn-primary btn-block users-list-clear glow mb-0">Clear</button>
+                  <div class="col-6 col-sm-3 col-lg-2">
+                     <label for="users-list-role">Habilitado</label>
+                     <fieldset class="form-group">
+                        <select class="form-control">
+                           <option value="Any">Any</option>
+                           <option value="User">User</option>
+                           <option value="Staff">Staff</option>
+                        </select>
+                     </fieldset>
                   </div>
+
+                  <div class="col-6 col-sm-3 col-lg-2">
+                     <label for="users-list-status">Tipo de Propiedad</label>
+                     <fieldset class="form-group">
+                        <select class="form-control">
+                           <option value="Any">Any</option>
+                           <option value="Active">Active</option>
+                           <option value="Close">Close</option>
+                           <option value="Banned">Banned</option>
+                        </select>
+                     </fieldset>
+                  </div>
+
+                  <div class="col-6 col-sm-3 col-lg-2">
+                     <label for="users-list-role">Tipo de Operaci&oacute;n</label>
+                     <fieldset class="form-group">
+                        <select class="form-control">
+                           <option value="Any">Any</option>
+                           <option value="User">User</option>
+                           <option value="Staff">Staff</option>
+                        </select>
+                     </fieldset>
+                  </div>
+                  <!--
+                  <div class="col-6 col-sm-3 col-lg-1 d-flex align-items-center">
+                     <button type="reset" class="btn btn-primary btn-block users-list-clear glow mb-0">Clear</button>
+                  </div>-->
                </div>
             </form>
          </div>
@@ -123,7 +157,9 @@ require_once INCLUDES . 'header.php';
                               </table>
                            </div>
                            <!-- Datatable ends -->
-                           <button type="button" class="btn btn-outline-primary btn-toastr mb-1 mr-1" id="position-bottom-right">Bottom Right</button>
+                           <button type="button" class="btn btn-primary mt-4 mr-2" id="position-bottom-right"><i class="ft-plus mr-1"></i>Nueva Propiedad</button>
+                           <button type="button" class="btn btn-primary mt-4 mr-2"><i class="ft-download mr-1"></i>Importar</button>
+                           <button type="button" class="btn btn-primary mt-4 mr-2"><i class="ft-upload mr-1"></i>Exportar</button>
                         </div>
                      </div>
                   </div>

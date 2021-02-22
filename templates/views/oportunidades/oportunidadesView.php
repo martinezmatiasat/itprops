@@ -107,6 +107,7 @@ require_once INCLUDES . 'header.php';
                            </div>
                            <!-- Datatable ends -->
                            <button type="button" class="btn btn-primary mt-4 mr-2"><i class="ft-plus mr-1"></i>Nueva Oportunidad</button>
+                           <a href=<?= URL."oportunidades/flujos" ?> class="btn btn-primary mt-4 mr-2"><i class="ft-git-merge mr-1"></i>Flujos</a>
                         </div>
                      </div>
                   </div>

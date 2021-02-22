@@ -64,7 +64,7 @@ class Administrador
       return;
    }
 
-   public static function unset()
+   public static function unset_current_admin()
    {
       if (isset($_SESSION['user'])) unset($_SESSION['user']);
       return;

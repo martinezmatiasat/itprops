@@ -152,6 +152,12 @@
                               <span>Tickets</span>
                            </div>
                         </a>
+                        <a class="dropdown-item" href=<?php echo URL . "tickets"; ?>>
+                           <div class="d-flex align-items-center">
+                              <i class="ft-file-text mr-2"></i>
+                              <span>Facturaci&oacute;n</span>
+                           </div>
+                        </a>
                         <a class="dropdown-item" href=<?php echo URL . "catalogo/zona"; ?>>
                            <div class="d-flex align-items-center">
                               <i class="ft-layers mr-2"></i>
@@ -164,7 +170,6 @@
                               <span>Configuraci&oacute;n</span>
                            </div>
                         </a>
-
                      </div>
                   </li>
                   <li class="dropdown nav-item mr-1">
@@ -217,50 +222,12 @@
                      <i class="ft-home"></i>
                      <span data-i18n="Menu Levels">Propiedades</span>
                   </a>
-                  <!--
-                  <ul class="dropdown-menu">
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "propiedades"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Listado</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "propiedades/importar"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Importar</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "propiedades/exportar"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Exportar</span>
-                        </a>
-                     </li>
-                  </ul>
-                  -->
                </li>
-               <li class="dropdown nav-item" data-menu="dropdown">
-                  <a class="dropdown-toggle nav-link d-flex align-items-center" href="javascript:;" data-toggle="dropdown">
+               <li class="dropdown nav-item">
+                  <a class="nav-link" href=<?php echo URL . "oportunidades"; ?>>
                      <i class="ft-gift"></i>
                      <span data-i18n="Menu Levels">Oportunidades</span>
                   </a>
-                  <!--
-                  <ul class="dropdown-menu">
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "oportunidades"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Oportunidades</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "oportunidades/flujos"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Flujos</span>
-                        </a>
-                     </li>
-                  </ul>
-                  -->
                </li>
                <li class="dropdown nav-item">
                   <a class="nav-link" href=<?php echo URL . "clientes"; ?>>
@@ -274,156 +241,6 @@
                      <span data-i18n="Page1">Reportes</span>
                   </a>
                </li>
-               <!--<li class="dropdown nav-item" data-menu="dropdown">
-                  <a class="dropdown-toggle nav-link d-flex align-items-center" href="javascript:;" data-toggle="dropdown">
-                     <i class="ft-file-text"></i>
-                     <span data-i18n="Menu Levels">Facturaci&oacute;n</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "facturacion/facturas"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Mis Facturas</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "facturacion/datos"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Datos de Facturaci&oacute;n</span>
-                        </a>
-                     </li>
-                  </ul>
-               </li>-->
-               <!-- <li class="dropdown nav-item" data-menu="dropdown">
-                  <a class="dropdown-toggle nav-link d-flex align-items-center" href="javascript:;" data-toggle="dropdown">
-                     <i class="ft-layers"></i>
-                     <span data-i18n="Menu Levels">Cat&aacute;logo</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/zona"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Zona</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/partido"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Partido</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/barrio"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Barrio</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/tipos-propiedades"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Tipos de Propiedades</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/estado-propiedad"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Estado Propiedad</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/tipo-operacion"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Tipo de Operaci&oacute;n</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/caracteristicas"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Caracter&iacute;sticas</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/bloques"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Bloques de Informaci&oacute;n</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/tipos-documentos"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Tipos de Documentos</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/procedencia"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Procedencia</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "catalogo/tipos-tareas"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Tipos de Tareas</span>
-                        </a>
-                     </li>
-                  </ul>
-               </li> -->
-               <!--<li class="dropdown nav-item" data-menu="dropdown">
-                  <a class="dropdown-toggle nav-link d-flex align-items-center" href="javascript:;" data-toggle="dropdown">
-                     <i class="ft-settings"></i>
-                     <span data-i18n="Menu Levels">Configuraci&oacute;n</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "configuracion/sucursales"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Sucursales</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "configuracion/sincronizacion"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Sincronizaci&oacute;n</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "configuracion/api"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Api</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "configuracion/datos"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Datos Generales</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "configuracion/general"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Config. General</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "configuracion/app"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Config. App</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "configuracion/ficha"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Config. Ficha</span>
-                        </a>
-                     </li>
-                     <li data-menu="">
-                        <a class="dropdown-item d-flex align-items-center" href=<?php echo URL . "configuracion/cartelera"; ?> data-toggle="dropdown">
-                           <i class="ft-arrow-right submenu-icon"></i>
-                           <span data-i18n="Second Level">Config. Cartelera</span>
-                        </a>
-                     </li>
-                  </ul>
-               </li>-->
             </ul>
          </div>
       </div>
