@@ -29,7 +29,7 @@ class oportunidadesController
 
    public function flujos($action = '')
    {  
-      if ($action && $action == 'editar') go_to('oportunidades/editarFlujo');
+      if ($action && $action == 'editar') Redirect::to('oportunidades/editarFlujo');
       validate_loged_user();
       View::render(CONTR.'flujos');
       return;

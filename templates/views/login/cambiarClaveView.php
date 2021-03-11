@@ -9,7 +9,7 @@
    <meta name="description" content="Apex admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
    <meta name="keywords" content="admin template, Apex admin template, dashboard template, flat admin template, responsive admin template, web app">
    <meta name="author" content="PIXINVENT">
-   <title>Forgot Password Page - Apex responsive bootstrap 4 admin template</title>
+   <title>Lock Screen Page - Apex responsive bootstrap 4 admin template</title>
    <link rel="shortcut icon" type="image/x-icon" href=<?= APPASSETS . "img/ico/favicon.ico" ?>>
    <link rel="shortcut icon" type="image/png" href=<?= APPASSETS . "img/ico/favicon-32.png" ?>>
    <meta name="apple-mobile-web-app-capable" content="yes">
@@ -53,26 +53,24 @@
          <div class="main-content">
             <div class="content-overlay"></div>
             <div class="content-wrapper">
-               <!--Forgot Password Starts-->
-               <section id="forgot-password" class="auth-height">
-                  <div class="row full-height-vh m-0 d-flex align-items-center justify-content-center">
-                     <div class="col-md-7 col-12">
+               <!--Lock Screen Starts-->
+               <section id="lock-screen" class="auth-height">
+                  <div class="row full-height-vh m-0">
+                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="card overflow-hidden">
                            <div class="card-content">
                               <div class="card-body auth-img">
                                  <div class="row m-0">
-                                    <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center text-center auth-img-bg py-2">
-                                       <img src=<?= APPASSETS . "img/gallery/forgot.png" ?> alt="" class="img-fluid" width="260" height="230">
+                                    <div class="col-lg-6 d-lg-flex justify-content-center align-items-center d-none text-center auth-img-bg p-3">
+                                       <img src="../../../app-assets/img/gallery/lock.png" alt="" class="img-fluid" height="230" width="310">
                                     </div>
-                                    <div class="col-lg-6 col-md-12 px-4 py-3">
-                                       <h4 class="mb-2 card-title">Olvid&eacute; mi clave</h4>
-                                       <p class="card-text mb-3">Por favor ingrese su email. Le ser&aacute; enviada una clave provisoria.</p>
-                                       <form action=<?= URL . "login/forgot_pass" ?> method="post">
-                                          <input type="email" name="email" class="form-control mb-3" placeholder="Email">
-                                          <div class="d-flex flex-sm-row flex-column justify-content-between">
-                                             <a href=<?= URL . "login" ?> class="btn bg-light-primary mb-2 mb-sm-0">Volver</a>
-                                             <input type="submit" class="btn btn-primary ml-sm-1" value="Enviar">
-                                          </div>
+                                    <div class="col-lg-6 col-md-12 py-3 px-4">
+                                       <h4 class="card-title mb-3">Cambio de clave</h4>
+                                       <form action=<?= URL . "login/change_pass/".$data['administrador_id']?> method="post">
+                                          <input type="password" name="actual" class="form-control mb-2" placeholder="Clave Actual">
+                                          <input type="password" name="nueva" class="form-control mb-2" placeholder="Nueva Clave">
+                                          <input type="password" name="confirma" class="form-control mb-2" placeholder="Confirme Nueva Clave">
+                                          <input type="submit" class="btn btn-block btn-primary mt-2" value="Aceptar">
                                        </form>
                                        <div class="mt-3">
                                           <?= Alert::catch_login_msg(); ?>
@@ -85,7 +83,7 @@
                      </div>
                   </div>
                </section>
-               <!--Forgot Password Ends-->
+               <!--Lock Screen Ends-->
 
             </div>
          </div>

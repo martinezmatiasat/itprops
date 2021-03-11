@@ -88,9 +88,7 @@ class Factory
 
    public static function insert_object($table, $object)
    {
-      foreach ($object as $key => $value) {
-         $data[$key] = $value;
-      }
+      $data = dismount($object);
       $result = self::insert_array($table, $data);
       return $result;
    }
@@ -117,9 +115,13 @@ class Factory
 
    public static function update_object($table, $object, $conditions = null)
    {
+      /*
+      $data = [];
       foreach ($object as $key => $value) {
          $data[$key] = $value;
       }
+      */
+      $data = dismount($object);
       $result = self::update_array($table, $data, $conditions);
       return $result;
    }

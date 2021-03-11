@@ -5,7 +5,7 @@ class catalogoController
 {
    public function index()
    {
-      go_to(CONTR.'zona');
+      Redirect::to(CONTR.'zona');
       return;
    }
 

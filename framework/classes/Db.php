@@ -1,7 +1,7 @@
 <?php
 class Db
 {
-   private $conn;
+   private $connection;
    private $engine;
    private $host;
    private $name;

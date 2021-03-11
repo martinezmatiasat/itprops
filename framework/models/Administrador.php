@@ -12,7 +12,7 @@ class Administrador
    private $en_linea = null;
    private $rol_id = null;
    private $fecha_creacion = null;
-   private $eliminado = null;
+   private $estado = null;
 
    function __construct($data = [])
    {
@@ -27,7 +27,7 @@ class Administrador
       if (isset($data['en_linea'])) $this->en_linea = $data['en_linea'];
       if (isset($data['rol_id'])) $this->rol_id = $data['rol_id'];
       if (isset($data['fecha_creacion'])) $this->fecha_creacion = $data['fecha_creacion'];
-      if (isset($data['eliminado'])) $this->eliminado = $data['eliminado'];
+      if (isset($data['estado'])) $this->estado = $data['estado'];
    }
 
    function getAdministradorId() { return $this->administrador_id; }
@@ -41,7 +41,7 @@ class Administrador
    function getEnLinea() { return $this->en_linea; }
    function getRolId() { return $this->rol_id; }
    function getFechaCreacion() { return $this->fecha_creacion; }
-   function getEliminado() { return $this->eliminado; }
+   function getEstado() { return $this->estado; }
 
    function setAdministradorId($data) { $this->administrador_id = $data; }
    function setEmpresaId($data) { $this->empresa_id = $data; }
@@ -54,7 +54,7 @@ class Administrador
    function setEnLinea($data) { $this->en_linea = $data; }
    function setRolId($data) { $this->rol_id = $data; }
    function setFechaCreacion($data) { $this->fecha_creacion = $data; }
-   function setEliminado($data) { $this->eliminado = $data; }
+   function setEstado($data) { $this->estado = $data; }
 
    public static function set_current_admin($administrador_id, $nombre)
    {

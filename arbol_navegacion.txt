@@ -1,0 +1,74 @@
+itprops
+└──dashboard*
+└──calendario
+│   └──agregarTarea
+│   └──sincronizarGoogle
+└──consultas
+│   └──consultasWeb
+│   └──chat
+│   └──historial
+└──administradores
+│   └──agregar
+│   └──editar
+│   └──historialAccesos
+└──tickets
+│   └──cerrar
+│   └──reabrir
+│   └──ver
+│   └──contestar
+│   └──nuevoTicket
+└──facturación
+│   └──misFacturas
+│   └──datosDeFacturacion
+└──catálogo
+│   └──zonas
+│   │   └──partidos
+│   │       └──barrios
+│   └──tiposPropiedad
+│   └──estadosPropiedad
+│   └──tiposOperacion
+│   └──características
+│   └──bloquesInformacion
+│   └──tiposDocumento
+│   └──procedencia
+│   └──tiposTareas
+└──configuración
+│   └──sucursales
+│   │   └──editar
+│   │   └──agregar
+│   └──sincronizacion
+│   └──api
+│   │   └──generar
+│   │   └──refrescar
+│   └──datosGenerales
+│   └──configuracionGeneral
+│   └──configuracionFicha
+│   └──configuracionCartelera
+└──tareas
+└──propiedades
+│   └──editar
+│   └──verFicha
+│   └──verCartelera
+│   └──verWeb
+│   └──cambiarEstado
+│   └──exportar
+└──oportunidades
+│   └──oportunidades
+│   │   └──nueva
+│   │   └──editar
+│   │   └──agregarObservaciones
+│   │   └──reasignar
+│   │   └──cambiarEstado
+│   │   └──generarTarea
+│   │   └──historialCambios
+│   └──flujos
+│   └──agregar
+└──clientes
+│   └──agregar
+│   └──ver
+│   └──editar
+│   └──alertas
+│   └──favoritos
+│   └──resetearClave
+└──reportes
+

@@ -4,7 +4,7 @@ class facturacionController
 {
    public function index()
    {
-      go_to('facturacion/facturas');
+      Redirect::to('facturacion/facturas');
    }
 
    public function facturas()

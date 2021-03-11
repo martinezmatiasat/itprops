@@ -6,7 +6,7 @@ class loginController
    function index()
    {
       if (isset($_COOKIE['admin']) || isset($_COOKIE['empresa'])) {
-         go_to('propiedades');
+         Redirect::to('propiedades');
       }
       View::render(CONTR . 'login');
    }
@@ -14,7 +14,7 @@ class loginController
    function login()
    {
       if (isset($_COOKIE['admin']) || isset($_COOKIE['empresa'])) {
-         go_to('propiedades');
+         Redirect::to('propiedades');
       }
 
       if (empty($_POST['email']) || empty($_POST['pass'])) {
@@ -26,8 +26,11 @@ class loginController
          } else {
             if (!enabled_company($admin->getEmpresaId())) {
                $mensaje = 'Su empresa no est&aacute; habilitada para operar';
-            } elseif ($admin->getEliminado() != 0) {
+            } elseif ($admin->getEstado() == 0) {
                $mensaje = 'Su usuario no est&aacute; habilitado para operar';
+            } elseif ($admin->getEstado() == 2) {
+               $id = $admin->getAdministradorId();
+               Redirect::to("login/change_pass/$id");
             } else {
                $ip = getRealIpAddr();
                Factory::insert_array(
@@ -43,13 +46,13 @@ class loginController
                setcookie("session_id", session_id(), time() + 60 * 60 * 72, '/');
                setcookie("admin_id", $admin->getAdministradorId(), time() + 60 * 60 * 72, '/');
                setcookie("empresa_id", $admin->getEmpresaId(), time() + 60 * 60 * 72, '/');
-               go_to('propiedades');
+               Redirect::to('propiedades');
             }
          }
       }
 
       if (isset($mensaje)) Alert::throw_msg($mensaje, 'danger');
-      go_to('login');
+      Redirect::to('login');
    }
 
    function logout()
@@ -67,18 +70,65 @@ class loginController
       setcookie(session_name(), null, time() - 3600 * 24, '/');
       setcookie("admin_id", null, time() - 3600 * 24, "/");
       setcookie("empresa_id", null, time() - 3600 * 24, "/");
-      go_to('login');
+      Redirect::to('login');
    }
 
    function forgot_pass()
    {
+      if (isset($_COOKIE['admin']) || isset($_COOKIE['empresa'])) {
+         Redirect::to('propiedades');
+      }
+
       if (isset($_POST['email'])) {
-         $prov_pass = random_string(8);
          $admin = Factory::get('Administrador', 'administrador', ['email' => $_POST['email']]);
-         Alert::throw_msg($_POST['email'], 'success');
-         View::render(CONTR . 'olvideClave');
+         if (!$admin) {
+            Alert::throw_msg('Este email no está registrado', 'danger');
+            View::render(CONTR . 'olvideClave');
+         }
+         if ($admin->getEstado() == 0) {
+            Alert::throw_msg('El usuario no está activo', 'danger');
+            View::render(CONTR . 'olvideClave');
+         }
+         $prov_pass = random_string(8);
+         $admin->setClave(sha1($prov_pass));
+         $admin->setEstado(2);
+         $id = $admin->getAdministradorId();
+         $company = Factory::get('Empresa', 'empresa', ['empresa_id' => $admin->getEmpresaId()]);
+         if ($company->getEstado() != 0 && $company->getEstado() != 1) {
+            Alert::throw_msg('La empresa no está activa', 'danger');
+            View::render(CONTR . 'olvideClave');
+         }
+         Factory::update_object('administrador', $admin, ["administrador_id = $id"]);
+         Alert::throw_msg($prov_pass, 'danger');
+         /*
+         Notification::send(
+            1, 
+            $_POST['email'], 
+            ['##RAZON##', '##NOMBRE##', '##EMAIL##', '##CLAVE##'], 
+            [$company->getRazonSocial(), $admin->getNombre(), $admin->getEmail(), $admin->getClave()]
+         );
+         */
+         Redirect::to('login');
       }
       View::render(CONTR . 'olvideClave');
-      return;
+   }
+
+   function change_pass($admin_id = null)
+   {
+      if (isset($_COOKIE['admin']) || isset($_COOKIE['empresa'])) {
+         Redirect::to('propiedades');
+      }
+
+      if (isset($_POST['actual']) && isset($_POST['nueva'])) {
+         if ($_POST['nueva'] != $_POST['confirma']) {
+            Alert::throw_msg('Las claves no coinciden', 'danger');
+         } else {
+            $clave = sha1($_POST['nueva']);
+            Factory::update_array('administrador', ['clave' => $clave, 'estado' => 1], ["administrador_id = $admin_id"]);
+            Redirect::to('login');
+         }
+      }
+
+      View::render(CONTR . 'cambiarClave', ['administrador_id' => $admin_id]);
    }
 }
