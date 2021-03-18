@@ -100,14 +100,14 @@ class loginController
          }
          Factory::update_object('administrador', $admin, ["administrador_id = $id"]);
          Alert::throw_msg($prov_pass, 'danger');
-         /*
+         
          Notification::send(
             1, 
             $_POST['email'], 
             ['##RAZON##', '##NOMBRE##', '##EMAIL##', '##CLAVE##'], 
-            [$company->getRazonSocial(), $admin->getNombre(), $admin->getEmail(), $admin->getClave()]
+            [$company->getRazonSocial(), $admin->getNombre(), $admin->getEmail(), $prov_pass]
          );
-         */
+         
          Redirect::to('login');
       }
       View::render(CONTR . 'olvideClave');

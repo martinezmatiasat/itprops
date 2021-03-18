@@ -104,7 +104,7 @@ function random_string($length = 10)
    return $randomString;
 }
 
-function sendEmail($to, $subject, $content, $files = array(), $debug = false)
+function send_email($to, $subject, $content)
 {
    $result = false;
    if (!mail($to, $subject, $content)) {
@@ -114,46 +114,16 @@ function sendEmail($to, $subject, $content, $files = array(), $debug = false)
       $result = true;
    }
    return $result;
-
-   /*
-   $mail = new PHPMailer();
-   $mail->From = NO_REPLY_EMAIL;
-   $mail->FromName = NO_REPLY_NAME;
-   $tos = explode(',', $to);
-   foreach ($tos as $to) $mail->AddAddress($to);
-   $mail->IsHTML(true);
-   $mail->Subject = $subject;
-   $mail->Body = $content;
-   foreach ($files as $name => $file) {
-      if (file_exists($ticket)) $mail->addStringAttachment(file_get_contents($file), $name);
-   }
-
-   if (SMAIL_SMTP) {
-      $mail->IsSMTP();
-      $mail->Host = SMAIL_HOST;
-      $mail->Port = SMAIL_PORT;
-      $mail->SMTPAuth = SMAIL_AUTH ? true : false;
-      if ($mail->SMTPAuth) {
-         $mail->Username = SMAIL_USERNAME;
-         $mail->Password = SMAIL_PASSWORD;
-      }
-      if (SMAIL_SECURE && SMAIL_SECURE != '') $mail->SMTPSecure = SMAIL_SECURE;
-      if ($debug) $mail->SMTPDebug = 6;
-
-      ///DESCOMENTAR SI DA ERROR DE VERIFICACION DE SSL
-      //$mail->SMTPOptions = array('ssl' => array('verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true));
-   }
-   $mail->Send();
-   */
 }
 
-function dismount($object) {
+function dismount($object)
+{
    $reflectionClass = new ReflectionClass(get_class($object));
    $array = array();
    foreach ($reflectionClass->getProperties() as $property) {
-       $property->setAccessible(true);
-       $array[$property->getName()] = $property->getValue($object);
-       $property->setAccessible(false);
+      $property->setAccessible(true);
+      $array[$property->getName()] = $property->getValue($object);
+      $property->setAccessible(false);
    }
    return $array;
 }

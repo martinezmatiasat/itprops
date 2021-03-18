@@ -1,5 +1,9 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 class Notification
 {
    private $type = null;
@@ -8,9 +12,9 @@ class Notification
 
    function __construct($data = [])
    {
-      if (isset($data['type'])) $this->type = $data['type'];
-      if (isset($data['subject'])) $this->subject = $data['subject'];
-      if (isset($data['message'])) $this->email = $data['message'];
+      if (isset($data['tipo'])) $this->type = $data['tipo'];
+      if (isset($data['asunto'])) $this->subject = $data['asunto'];
+      if (isset($data['mensaje'])) $this->message = $data['mensaje'];
    }
 
    function getType()
@@ -43,10 +47,53 @@ class Notification
    {
       $notification = Factory::get('Notification', 'notificacion', ['tipo' => $type]); ///Busco la notificacion en la base de datos segun el tipo		
       if (!$notification) return false;
-      
+
       $content = file_get_contents(INCLUDES . 'email-inlined.html'); ///Levanto un template del HTML a enviar
       $msg = str_replace('###CONTENT###', $notification->getMessage(), $content); ///Reemplazo la variable CONTENT (que esta en el template) con el mensaje de la notificacion
       $notification->setMessage(str_replace($search, $replace, $msg)); ///Reemplazo las variables que estan en la notificacion con los datos del cliente + clave + etc
-      sendEmail($email, $notification->getSubject(), $notification->getMessage(), $files); ////LLamo a la funcion anterior
+      self::sendEmail($email, $notification->getSubject(), $notification->getMessage(), $files); ////LLamo a la funcion anterior
+      return true;
+   }
+
+   public static function sendEmail($to, $subject, $content, $files = array(), $debug = false)
+   {
+      require 'PHPMailer.php';
+      require 'Exception.php';
+      require 'SMTP.php';
+
+      try {
+         $mail = new PHPMailer();
+         $mail->From = NO_REPLY_EMAIL;
+         $mail->FromName = NO_REPLY_NAME;
+         $tos = explode(',', $to);
+         foreach ($tos as $to) $mail->AddAddress($to);
+         $mail->IsHTML(true);
+         $mail->Subject = $subject;
+         $mail->Body = $content;
+         foreach ($files as $name => $file) {
+            if (file_exists($ticket)) $mail->addStringAttachment(file_get_contents($file), $name);
+         }
+
+         if (SMAIL_SMTP) {
+            $mail->IsSMTP();
+            $mail->Host = SMAIL_HOST;
+            $mail->Port = SMAIL_PORT;
+            $mail->SMTPAuth = SMAIL_AUTH ? true : false;
+            if ($mail->SMTPAuth) {
+               $mail->Username = SMAIL_USERNAME;
+               $mail->Password = SMAIL_PASSWORD;
+            }
+            if (SMAIL_SECURE && SMAIL_SECURE != '') $mail->SMTPSecure = SMAIL_SECURE;
+            if ($debug) $mail->SMTPDebug = 6;
+
+            ///DESCOMENTAR SI DA ERROR DE VERIFICACION DE SSL
+            //$mail->SMTPOptions = array('ssl' => array('verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true));
+         }
+         
+         $mail->Send();
+         Alert::throw_msg('Enviada con &eacute;xito', 'success');
+      } catch (Exception $e) {
+         Alert::throw_msg("Disculpanos. No se pudo enviar: {$mail->ErrorInfo}", 'danger');
+      }
    }
 }

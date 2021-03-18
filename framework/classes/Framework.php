@@ -39,6 +39,13 @@ class Framework
          die(sprintf('No se encuentra el archivo %s requerido.', $filename));
       }
       require_once 'framework/config/' . $filename;
+
+      $filename = 'mailer_config.php';
+      if (!is_file('framework/config/' . $filename)) {
+         die(sprintf('No se encuentra el archivo %s requerido.', $filename));
+      }
+      require_once 'framework/config/' . $filename;
+      
       return;
    }
 
