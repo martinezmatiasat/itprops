@@ -36,6 +36,10 @@ define('APPASSETS'  , URL.'app-assets/');
 define('ASSETS'     , URL.'assets/');
 define('GULP-TASKS' , URL.'gulp-tasks/');
 define('SRC'        , URL.'src/');
+define('SDK'        , URL.'sdk/');
+
+// Sdks
+define('PHPMAILER'  , SDK.'PHPMailer/');
 
 // Setear conexión local o de desarrollo
 define('LDB_ENGINE' , 'mysql');

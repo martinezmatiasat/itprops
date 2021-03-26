@@ -12,8 +12,8 @@ class catalogoController
    public function zona()
    {
       validate_loged_user();
-      //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'zonas');
+      $data = ['title' => 'Cat&aacute;logo', 'bg' => 'dark'];
+      View::render(CONTR.'zonas', $data);
       return;
    }
 

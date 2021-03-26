@@ -57,9 +57,9 @@ class Notification
 
    public static function sendEmail($to, $subject, $content, $files = array(), $debug = false)
    {
-      require 'PHPMailer.php';
-      require 'Exception.php';
-      require 'SMTP.php';
+      require dirname(__FILE__).'/../../sdk/PHPMailer/src/PHPMailer.php';
+      require dirname(__FILE__).'/../../sdk/PHPMailer/src/Exception.php';
+      require dirname(__FILE__).'/../../sdk/PHPMailer/src/SMTP.php';
 
       try {
          $mail = new PHPMailer();
