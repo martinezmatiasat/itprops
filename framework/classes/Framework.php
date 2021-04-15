@@ -34,33 +34,33 @@ class Framework
 
    private function load_config()
    {
-      $filename = 'framework_config.php';
-      if (!is_file('framework/config/' . $filename)) {
-         die(sprintf('No se encuentra el archivo %s requerido.', $filename));
-      }
-      require_once 'framework/config/' . $filename;
-
-      $filename = 'mailer_config.php';
-      if (!is_file('framework/config/' . $filename)) {
-         die(sprintf('No se encuentra el archivo %s requerido.', $filename));
-      }
-      require_once 'framework/config/' . $filename;
+      $files = [
+         'framework_config.php'
+      ];
       
+      foreach ($files as $file) {
+         if (!is_file('framework/config/' . $file)) {
+            die(sprintf('No se encuentra el archivo %s requerido.', $file));
+         }
+         require_once 'framework/config/' . $file;
+      }
       return;
    }
 
    private function load_functions()
    {
-      $file = 'core_functions.php';
-      if (!is_file(FUNCTIONS . $file)) {
-         die(sprintf('No se encuentra el archivo %s requerido.', $file));
+      $files = [
+         'core_functions.php',
+         'custom_functions.php',
+         //'ajax.php'
+      ];
+      
+      foreach ($files as $file) {
+         if (!is_file(FUNCTIONS . $file)) {
+            die(sprintf('No se encuentra el archivo %s requerido.', $file));
+         }
+         require_once FUNCTIONS . $file;
       }
-      require_once FUNCTIONS . $file;
-      $file = 'custom_functions.php';
-      if (!is_file(FUNCTIONS . $file)) {
-         die(sprintf('No se encuentra el archivo %s requerido.', $file));
-      }
-      require_once FUNCTIONS . $file;
       return;
    }
 

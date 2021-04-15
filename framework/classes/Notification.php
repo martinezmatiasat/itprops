@@ -42,6 +42,26 @@ class Notification
    {
       $this->message = $message;
    }
+   
+   public static function init_module($n)
+   {
+      $sql = "SELECT * FROM extra_variables WHERE module = $n";
+      try {
+         $result = Db::query($sql);
+         return $result;
+      } catch (Exception $e) {
+         return $e->getMessage();
+      }
+   }
+
+   public static function define_const($module)
+   {
+      $data = self::init_module($module);
+      foreach ($data as $d) {
+         define($d['name'], $d['value']);
+      }
+      return;
+   }
 
    public static function send($type, $email, $search, $replace, $files = array())
    {
@@ -62,6 +82,7 @@ class Notification
       require dirname(__FILE__).'/../../sdk/PHPMailer/src/SMTP.php';
 
       try {
+         self::define_const(1);
          $mail = new PHPMailer();
          $mail->From = NO_REPLY_EMAIL;
          $mail->FromName = NO_REPLY_NAME;
@@ -87,7 +108,7 @@ class Notification
             if ($debug) $mail->SMTPDebug = 6;
 
             ///DESCOMENTAR SI DA ERROR DE VERIFICACION DE SSL
-            //$mail->SMTPOptions = array('ssl' => array('verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true));
+            $mail->SMTPOptions = array('ssl' => array('verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true));
          }
          
          $mail->Send();

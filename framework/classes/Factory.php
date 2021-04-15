@@ -64,6 +64,24 @@ class Factory
       }
    }
 
+   public static function select_list($class, $table, $conditions = null)
+   {
+      $sql = "SELECT * FROM $table";
+      if ($conditions) {
+         $sql .= ' WHERE ';
+         $sql .= implode(' AND ', $conditions);
+      }
+      try {
+         $result = Db::query($sql);
+         foreach ($result as $res) {
+            $list[] = new $class($res);
+         }
+         return $list;
+      } catch (Exception $e) {
+         return false;
+      }
+   }
+
    public static function insert_array($table, $data)
    {
       $sql = "INSERT INTO $table ";
@@ -134,6 +152,10 @@ class Factory
          $sql .= implode(' AND ', $conditions);
       }
       try {
+         
+         var_dump($sql);
+         exit();
+         
          $result = Db::query($sql);
          return $result;
       } catch (Exception $e) {

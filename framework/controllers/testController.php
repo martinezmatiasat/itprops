@@ -5,11 +5,6 @@ class testController
 {
    function index()
    {
-      Notification::send(
-         1,
-         'test@gmail.com',
-         ['##RAZON##', '##NOMBRE##', '##EMAIL##', '##CLAVE##'],
-         ['test', 'test', 'test', 'test']
-      );
+      Notification::sendEmail('a', 'a', 'a');
    }
 }

@@ -158,7 +158,7 @@
                               <span>Facturaci&oacute;n</span>
                            </div>
                         </a>
-                        <a class="dropdown-item" href=<?php echo URL . "catalogo/zona"; ?>>
+                        <a class="dropdown-item" href=<?php echo URL . "catalogo"; ?>>
                            <div class="d-flex align-items-center">
                               <i class="ft-layers mr-2"></i>
                               <span>Cat&aacute;logo</span>

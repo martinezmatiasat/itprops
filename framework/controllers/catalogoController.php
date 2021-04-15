@@ -5,95 +5,163 @@ class catalogoController
 {
    public function index()
    {
-      Redirect::to(CONTR.'zona');
-      return;
+      validate_loged_user();
+      /*
+      if (isset($_POST["action"])) {
+         switch ($_POST["action"]) {
+            case 'tipos-propiedad':
+               $template = "tiposPropiedad";
+               break;
+
+            case 'tipos-operacion':
+               $template = "tiposOperacion";
+               break;
+
+            case 'caracteristicas':
+               $template = "caracteristicas";
+               break;
+
+            case 'tipos-documento':
+               $template = "tiposDocumento";
+               break;
+
+            case 'bloques-info':
+               $template = "bloquesInfo";
+               break;
+
+            case 'procedencias':
+               $template = "procedencias";
+               break;
+
+            case 'tipos-tarea':
+               $template = "tiposTarea";
+               break;
+
+            default:
+               $template = "zonas";
+               break;
+         }
+         View::render(CONTR . $template);
+         return;
+      }
+      */
+      $data = ['title' => 'Cat&aacute;logo'];
+      View::render(CONTR . 'catalogo', $data);
    }
 
-   public function zona()
+
+   public function zonas()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       $data = ['title' => 'Cat&aacute;logo', 'bg' => 'dark'];
-      View::render(CONTR.'zonas', $data);
+      View::render(CONTR . 'zonas', $data);
       return;
    }
 
-   public function partido()
+   public function partidos()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'partidos');
+      View::render(CONTR . 'partidos');
       return;
    }
 
-   public function barrio()
+   public function barrios()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'barrios');
+      View::render(CONTR . 'barrios');
       return;
    }
 
-   public function tipos_propiedades()
+   public function tipos_propiedad()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'tiposPropiedades');
+      View::render(CONTR . 'tiposPropiedad');
       return;
    }
 
-   public function estado_propiedad()
+   public function estados_propiedad()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'estadosPropiedades');
+      View::render(CONTR . 'estadosPropiedad');
       return;
    }
 
-   public function tipo_operacion()
+   public function tipos_operacion()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'tiposOperaciones');
+      View::render(CONTR . 'tiposOperacion');
       return;
    }
 
-   public function caracteristicas()
+   public function caracteristicas($action = null, $caract_id = null)
    {
       validate_loged_user();
-      //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'caracteristicas');
+      if (empty($_POST["action"])) Redirect::to('catalogo');
+      $empresa_id = $_COOKIE['empresa_id'];
+      $caract_id = $_POST['action'];
+      switch ($action) {
+         case 'eliminar':
+            if (Factory::delete('catalogo', ["catalogo_id = $caract_id", "empresa_id = $empresa_id"])) {
+               Alert::throw_msg('Caracter&iacute;stica eliminada', 'success');
+            } else {
+               Alert::throw_msg('Disculpanos, no se pudo completar la operaci&oacute;n', 'danger');
+            }
+            break;
+
+         default:
+
+            break;
+      }
+      $data['caracteristicas'] = Factory::select_list('Catalogo', 'catalogo', ["tipo = 7", "empresa_id IN (0, $empresa_id)"]);
+      $data['title'] = "Caracter&iacute;sticas";
+      View::render(CONTR . 'caracteristicas', $data);
       return;
    }
 
-   public function bloques()
+   public function bloques_info()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'zona');
+      View::render(CONTR . 'bloquesInfo');
       return;
    }
 
-   public function tipos_documentos()
+   public function tipos_documento()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'tiposDocumentos');
+      View::render(CONTR . 'tiposDocumento');
       return;
    }
 
    public function procedencias()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'procedencias');
+      View::render(CONTR . 'procedencias');
       return;
    }
 
-   public function tipos_tareas()
+   public function tipos_tarea()
    {
       validate_loged_user();
+      if (empty($_POST["action"])) Redirect::to('catalogo');
       //$data = ['title' => 'Home', 'bg' => 'dark'];
-      View::render(CONTR.'tiposTareas');
+      View::render(CONTR . 'tiposTarea');
       return;
    }
 }
