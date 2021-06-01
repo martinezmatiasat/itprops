@@ -11,7 +11,7 @@ require_once INCLUDES . 'catalogoHeader.php';
 </div>
 
 <?php
-$pageLevelJs = ['js/ajax/ajaxPrueba.js'];
+$pageLevelJs = ['js/ajax/module-render.js'];
 require_once INCLUDES . 'catalogoFooter.php';
 require_once INCLUDES . 'footer.php';
 ?>

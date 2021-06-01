@@ -1,21 +1,7 @@
 <div class="card">
-   <div class="card-header">
-      <div class="row">
-         <div class="col-8">
-            <h4 class="card-title">Linked items</h4>
-         </div>
-         <div class="col-4">
-            <button type="button" class="btn btn-sm btn-outline-primary">
-               Agregar
-            </button>
-            <button type="button" class="btn btn-sm btn-outline-danger">
-               Cerrar
-            </button>
-         </div>
-      </div>
-   </div>
    <div class="card-content">
       <div class="card-body">
+         <!-- Datatable starts -->
          <div class="table-responsive">
             <table id="" class="table list-datatable table-hover">
                <thead>
@@ -25,41 +11,26 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <td>Algo</td>
-                     <td>
-                        <a href="page-users-edit.html">
-                           <i class="ft-edit"></i>
-                        </a>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>Algo</td>
-                     <td>
-                        <a href="page-users-edit.html">
-                           <i class="ft-edit"></i>
-                        </a>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>Algo</td>
-                     <td>
-                        <a href="page-users-edit.html">
-                           <i class="ft-edit"></i>
-                        </a>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td>Algo</td>
-                     <td>
-                        <a href="page-users-edit.html">
-                           <i class="ft-edit"></i>
-                        </a>
-                     </td>
-                  </tr>
+                  <?php foreach ($data['zonas'] as $z) { ?>
+                     <tr>
+                        <td><?= $z->getNombre(); ?></td>
+                        <td>
+                           <a href="page-users-edit.html">
+                              <i class="ft-edit"></i>
+                           </a>
+                        </td>
+                     </tr>
+                  <?php } ?>
                </tbody>
             </table>
          </div>
+         <!-- Datatable ends -->
+         <a href=<?= URL . "catalogo/"; ?> type="button" class="btn btn-primary mt-4 mr-2"><i class="ft-plus mr-1"></i>Nuevo</a>
       </div>
    </div>
 </div>
+
+<?=
+Alert::catch_msg();
+require_once INCLUDES . "catalogoScripts.php";
+?>

@@ -1,57 +1,36 @@
-<?php
-$vendorCss = ['datatables/dataTables.bootstrap4.min.css'];
-$pageLevelCss = ['css/pages/page-users.css'];
-require_once INCLUDES . 'header.php';
-?>
-
-<div class="main-content">
-   <div class="content-overlay"></div>
-   <div class="content-wrapper">
-      <section class="users-list-wrapper">
-         <!-- Table starts -->
-         <div class="users-list-table">
-            <div class="row">
-               <div class="col-12">
-                  <div class="card">
-                     <div class="card-content">
-                        <div class="card-body">
-                           <!-- Datatable starts -->
-                           <div class="table-responsive">
-                              <table id="users-list-datatable" class="table">
-                                 <thead>
-                                    <tr>
-                                       <th>Nombre (Tipo de Operaci&oacute;n)</th>
-                                       <th>Edit</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <td>Santa Fe</td>
-                                       <td>
-                                          <a href=<?php echo URL . "catalogo/eliminar_tipo_prop"; ?>>
-                                             <i class="ft-trash-2 font-medium-2"></i>
-                                          </a>
-                                       </td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
-                           <!-- Datatable ends -->
-                           <a href=<?= URL . "catalogo/nuevo-tipo-prop"; ?> type="button" class="btn btn-primary mt-4 mr-2"><i class="ft-plus mr-1"></i>Nuevo Tipo</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+<div class="card">
+   <div class="card-content">
+      <div class="card-body">
+         <!-- Datatable starts -->
+         <div class="table-responsive">
+            <table id="" class="table list-datatable table-hover">
+               <thead>
+                  <tr>
+                     <th>Nombre</th>
+                     <th>Acci&oacute;n</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <?php foreach ($data['tiposOperacion'] as $t) { ?>
+                     <tr>
+                        <td><?= $t->getNombre(); ?></td>
+                        <td>
+                           <a href="page-users-edit.html">
+                              <i class="ft-edit"></i>
+                           </a>
+                        </td>
+                     </tr>
+                  <?php } ?>
+               </tbody>
+            </table>
          </div>
-         <!-- Table ends -->
-      </section>
-
+         <!-- Datatable ends -->
+         <a href=<?= URL . "catalogo/"; ?> type="button" class="btn btn-primary mt-4 mr-2"><i class="ft-plus mr-1"></i>Nuevo</a>
+      </div>
    </div>
 </div>
 
-<?php
-$pageVendorJs = ['datatable/jquery.dataTables.min.js', 'datatable/dataTables.bootstrap4.min.js'];
-$pageLevelJs = ['js/list-datatable.js', 'js/page-users.js'];
-require_once INCLUDES . 'footer.php';
+<?=
+Alert::catch_msg();
+require_once INCLUDES . "catalogoScripts.php";
 ?>

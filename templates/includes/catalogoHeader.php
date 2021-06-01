@@ -47,7 +47,7 @@
                   </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link nav-catalogo" id="notifications-tab" data-toggle="tab" name="procedencias" href="<?= URL . "catalogo/procedencias"; ?> role="tab" aria-controls="" aria-selected="false">
+                  <a class="nav-link nav-catalogo" id="notifications-tab" data-toggle="tab" name="procedencias" href=<?= URL . "catalogo/procedencias"; ?> role="tab" aria-controls="" aria-selected="false">
                      <i class="ft-monitor mr-1 align-middle"></i>
                      <span class="align-middle">Procedencias</span>
                   </a>
